@@ -1,0 +1,30 @@
+
+<a routerLink="/FollowupCreate/create" class="btn btn-info">Add New Followups</a>
+
+<hr />
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>FollowupId</th>
+            <th>Patient Name</th>
+            <th>Reason</th>
+            <th>Notes</th>
+            <th>Status</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let followup of model">
+            <td>{{followup.followupId}}</td>
+            <td>{{followup.patient.name}}</td>
+            <td>{{followup.reason}}</td>
+            <td>{{followup.notes}}</td>
+            <td>{{followup.status}}</td>
+           
+            <td class="btn-group">
+                <a [routerLink]="['/FollowupEdit/edit/', followup.followupId]" class="btn btn-warning">Edit</a>
+                <button class="btn btn-danger" (click)="DeleteFollowups(followup)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
